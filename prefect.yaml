@@ -7,29 +7,41 @@ name: ml-pipeline
 prefect-version: 3.0.11
 
 # build section allows you to manage and build docker images
-build: null
+build:
 
 # push section allows you to manage if and how this project is uploaded to remote locations
-push: null
+push:
 
 # pull section allows you to provide instructions for cloning this project in remote locations
 pull:
-- prefect.deployments.steps.git_clone:
-    repository: '{{ repository }}'
-    branch: '{{ branch }}'
-    access_token: null
+  - prefect.deployments.steps.git_clone:
+      repository: https://github.com/codecalligrapher/ml-pipeline
+      branch: main
 
 # the deployments section allows you to provide configuration for deploying flows
 deployments:
-- name: null
-  version: null
-  tags: []
-  description: null
-  schedule: {}
-  flow_name: null
-  entrypoint: null
-  parameters: {}
-  work_pool:
-    name: null
-    work_queue_name: null
-    job_variables: {}
+  - name:
+    version:
+    tags: []
+    description:
+    schedule: {}
+    flow_name:
+    entrypoint:
+    parameters: {}
+    work_pool:
+      name:
+      work_queue_name:
+      job_variables: {}
+  - name: default
+    version:
+    tags: []
+    concurrency_limit:
+    description: Main ML pipeline flow
+    entrypoint: src/flows/main.py:main_flow
+    parameters: { "table_paths": "airline_2m.csv" }
+    work_pool:
+      name: uat
+      work_queue_name:
+      job_variables: {}
+    enforce_parameter_schema: true
+    schedules: []

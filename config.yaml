@@ -1,0 +1,13 @@
+paths:
+  data_dir: "/storage/data"
+  raw_dir: "/storage/data/raw"
+  interim_dir: "/storage/data/interim"
+  processed_dir: "/storage/data/processed"
+  feature_dir: "/storage/data/features"
+  model_dir: "/storage/data/models"
+
+features:
+  numerical_columns: ["amount", "age", "tenure"]
+  categorical_columns: ["category", "merchant_type"]
+  date_columns: ["transaction_date"]
+  target_column: "churn"

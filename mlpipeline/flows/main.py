@@ -3,11 +3,11 @@ from typing import Dict, Optional
 
 from prefect import flow
 
-from mlpipeline.feature_engineering import feature_engineering_flow
-
 # from ..models.evaluate import evaluate_model
 # from ..models.train import train_model
 from mlpipeline.utils.config import Config, load_config
+
+from .feature_engineering import feature_engineering_flow
 
 logger = logging.getLogger(__name__)
 

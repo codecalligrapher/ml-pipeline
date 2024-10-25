@@ -37,7 +37,7 @@ deployments:
     tags: []
     concurrency_limit:
     description: Main ML pipeline flow
-    entrypoint: src/flows/main.py:main_flow
+    entrypoint: build/lib/flows/main.py:main_flow
     parameters: { "table_paths": ["airline_2m.csv"] }
     work_pool:
       name: uat

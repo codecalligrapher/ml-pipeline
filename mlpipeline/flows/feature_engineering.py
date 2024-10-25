@@ -7,8 +7,8 @@ from prefect.utilities.annotations import quote
 
 # from ..features.user_features import compute_user_features
 # from ..features.temporal_features import compute_temporal_features
-from ..data.io import load_table
-from ..utils.config import Config
+from mlpipeline.data.io import load_table
+from mlpipeline.utils.config import Config
 
 logger = logging.getLogger(__name__)
 
